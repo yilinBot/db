@@ -1,0 +1,59 @@
+select 查询列表 from 表名
+
+查询列表可以是：表中的字段、常量值、表达式、函数
+查询的结果是一个虚拟的表格
+
+1. 查询表中的单个字段
+	select last_name from employees;
+	
+2. 查询表中的多个字段
+	select last_name, salary, email from employees;
+	
+3. 查询表中的所有字段
+	select * from employees; 
+	
+4. 查询常量值
+	select 100; 
+	select 'john';
+
+5. 查询表达式
+	select 100*98; 
+	
+6. 查询函数
+	select version(); 
+
+7. 起别名
+     便于理解，
+     如果要查询的字段有重名的情况， 是有别名可以区分开来。 
+	select 100%98 as 结果； 
+	select last_name as 姓, first_name as 名 from employees; 
+	
+	select last_name 姓， first_name 名 from employees; 
+	
+	案例：查询salary， 显示结果为out put
+	select salary as 'out put' from employees; 
+
+8. 去重
+	案例：查询员工列表中涉及到所有的部门编号，
+	select distinct department_id from employees; 
+
+9. + 号的作用:
+	仅仅只有一个功能， 就是运算符
+	select 100+90; 两个操作数都为数值型，则作加法运算
+	select '123'+90; 其中一方为字符型，试图讲字符型数值转换成数值型，
+				如果转换成功，则继续做加法运算。
+	select 'john'+90; 
+			如果转换失败，则将字符型数值转换成0.
+	select null+10; 只要其中一方为null， 则肯定为null
+	
+	案例：查询员工名和姓连接成一个字段，并显示为 姓名
+	select concat('a','b','c') as 结果；
+	
+	select concat(last_name, first_name) as 姓名 from employees;  
+	
+	
+	
+	
+	
+	
+	
